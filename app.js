@@ -4,6 +4,8 @@ import authRoutes from "./routes/auth.js";
 import { connectDb } from "./util/db.js";
 import path from "path";
 import multer from "multer";
+import { Server } from "socket.io";
+import { init } from "./socket.js";
 
 const app = express();
 
@@ -55,6 +57,9 @@ try {
 app.use("/feed", feedRoutes);
 app.use("/auth", authRoutes);
 
-app.listen(8080, () => {
-  console.log("Server running");
+const server = app.listen(8080);
+
+const io = init(server);
+io.on("connection", (socket) => {
+  console.log("socket connected");
 });
