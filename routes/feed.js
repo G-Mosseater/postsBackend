@@ -20,7 +20,7 @@ router.post(
     body("title").trim().isLength({ min: 5 }),
     body("content").trim().isLength({ min: 5 }),
   ],
-  createPost
+  createPost,
 );
 
 router.get("/post/:postId", isAuth, getPost);
@@ -32,9 +32,9 @@ router.put(
     body("title").trim().isLength({ min: 5 }),
     body("content").trim().isLength({ min: 5 }),
   ],
-  updatePost
+  updatePost,
 );
 
-router.delete("/post/:postId", isAuth,deletePost);
+router.delete("/post/:postId", isAuth, deletePost);
 
 export default router;

@@ -4,7 +4,7 @@ import path from "path";
 import fs from "fs";
 import { fileURLToPath } from "url";
 import User from "../models/user.js";
-import { getIO } from "../socket.js";
+// import { getIO } from "../socket.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

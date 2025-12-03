@@ -29,7 +29,7 @@ router.put(
       .withMessage("Password must be atleast 5 characters long!"),
     body("name").trim().not().isEmpty().withMessage("Name is required!"),
   ],
-  signUp
+  signUp,
 );
 
 router.post("/login", login);
@@ -40,7 +40,7 @@ router.patch(
   "/status",
   isAuth,
   [body("status").trim().not().isEmpty()],
-  updateUserStatus
+  updateUserStatus,
 );
 
 export default router;
